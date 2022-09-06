@@ -483,7 +483,21 @@ for category_key in categories_and_concepts:
         dummyInput = input("Hit enter to go next iteration")
 
 # concurrent google image downloaders
-pool = Pool(processes=10)
-results = pool.map(download_images, allArguments)
+# pool = Pool(processes=10)
+# results = pool.map(download_images, allArguments)
 
-print(results)
+# print(results)
+argument = {
+    "keywords" : searchterms, 
+    "limit" : 100, 
+    "print_urls" : False, 
+    "output_directory" : "Data/download/"+category_key,
+    "image_directory" : concept_key,
+    "size" : "medium",
+    "save_source" : concept_key + "sources",
+    "format" : "jpg"
+}
+
+if __name__ == "__main__":
+    download_images(argument)
+
