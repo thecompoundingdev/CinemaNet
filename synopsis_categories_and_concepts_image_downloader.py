@@ -460,7 +460,6 @@ for category_key in categories_and_concepts:
     except:
         os.mkdir("Data/download/" + category_key)
 
-    print("Category: " + category_key)
     category_concepts = categories_and_concepts[category_key]
     totalCateogryConcepts = len(category_concepts)
     for index,concept in enumerate(category_concepts):
@@ -468,9 +467,7 @@ for category_key in categories_and_concepts:
         totalConcepts = len(concept)
         for ii,concept_key in enumerate(concept):
             print("Concept Key Number = ", ii, "out of ", totalConcepts)
-            print("Concept: " + concept_key)
             searchterms = ", ".join(concept[concept_key])
-            print("Search Terms: " + searchterms)
 
             try:
                 os.stat("Data/download/" + category_key +
@@ -483,6 +480,7 @@ for category_key in categories_and_concepts:
                          "output_directory": "Data/download/"+category_key, "image_directory": concept_key,  "size": "medium", "format": "jpg", "no_numbering": True}
             #arguments = { "keywords" : searchterms, "limit" : 100, "print_urls" : False, "output_directory" : "Data/download/"+category_key, "image_directory" : concept_key,  "size" : "medium", "save_source" : concept_key + "sources", "format" : "jpg" }
             allArguments.append(arguments)
+        dummyInput = input("Hit enter to go next iteration")
 
 # concurrent google image downloaders
 pool = Pool(processes=10)
