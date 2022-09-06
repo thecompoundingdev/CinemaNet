@@ -462,8 +462,12 @@ for category_key in categories_and_concepts:
 
     print("Category: " + category_key)
     category_concepts = categories_and_concepts[category_key]
-    for concept in category_concepts:
-        for concept_key in concept:
+    totalCateogryConcepts = len(category_concepts)
+    for index,concept in enumerate(category_concepts):
+        print("Concept Number = ", index, "out of ", totalCateogryConcepts)
+        totalConcepts = len(concept)
+        for ii,concept_key in enumerate(concept):
+            print("Concept Key Number = ", ii, "out of ", totalConcepts)
             print("Concept: " + concept_key)
             searchterms = ", ".join(concept[concept_key])
             print("Search Terms: " + searchterms)
